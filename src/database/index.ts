@@ -38,6 +38,6 @@ getConnectionOptions().then(async options => {
     await connection.createQueryBuilder()
         .createQueryBuilder()
         .relation(Barbecue, "users")
-        .of(barbecues)
-        .add(users);
+        .of(barbecues.map(i=> i.id))
+        .add(users.map(i=> i.id));
 });
