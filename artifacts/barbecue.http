@@ -2,7 +2,7 @@
 @domain = localhost
 @port =  3333
 @host = {{protocol}}://{{domain}}:{{port}}
-@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYTA3ZjVhODEtMGY0MC00MDU1LWE3OTUtZTZjM2VhZjYzOWZhIiwiaWF0IjoxNjI4ODIxMTI3LCJleHAiOjE2Mjg5MDc1Mjd9.Ph5ksld-xfi2_8w3lL-s-fyO1ivPq-4RYnz-UDR2t5Y
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMzc1NzkzODEtOTE0My00MDExLWE1YWItN2UyZDgwNjM0YmZhIiwiaWF0IjoxNjI4OTY2NTIwLCJleHAiOjE2MjkwNTI5MjB9.A7OBjnOjvLqqzA9b0wpfxf83vMudAZEYS6Q2uXGcdTI
 ##############################################################
 GET {{host}}/barbecues
 Authorization: {{authorization}}

@@ -12,4 +12,4 @@ RUN npm install
 
 EXPOSE 3333
 
-CMD ["npm", "run", "start:development"]
+CMD ["npm", "run", "start:test"]

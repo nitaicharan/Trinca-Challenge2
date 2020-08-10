@@ -1,7 +1,7 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class CreateDatabase1628962455760 implements MigrationInterface {
-    name = 'CreateDatabase1628962455760'
+export class CreateDatabase1628967479474 implements MigrationInterface {
+    name = 'CreateDatabase1628967479474'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
@@ -9,7 +9,7 @@ export class CreateDatabase1628962455760 implements MigrationInterface {
                 "id" varchar PRIMARY KEY NOT NULL,
                 "name" varchar NOT NULL,
                 "email" varchar NOT NULL,
-                "password" float NOT NULL,
+                "password" varchar NOT NULL,
                 "created_at" datetime NOT NULL DEFAULT (datetime('now'))
             )
         `);

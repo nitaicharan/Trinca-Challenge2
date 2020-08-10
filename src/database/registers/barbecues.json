@@ -1,0 +1,20 @@
+[
+  {
+    "id": "c1282645-08b1-4c6b-bee7-a84962ea5a3f",
+    "description": "GUI level",
+    "price": 280,
+    "created_at": "2021-08-13 15:50:02"
+  },
+  {
+    "id": "8ed3fd15-b6ed-4ee8-84b8-485cdff3cbe3",
+    "description": "End of Year",
+    "price": 400,
+    "created_at": "2021-08-13 15:51:07"
+  },
+  {
+    "id": "43c3e331-7fa1-4b4e-b4ab-531c285eb8f1",
+    "description": "Without reason",
+    "price": 140,
+    "created_at": "2021-08-13 15:51:34"
+  }
+]

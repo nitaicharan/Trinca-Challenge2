@@ -1,0 +1,14 @@
+[
+  {
+    "id": "8c2351f4-d177-41db-b461-ebe991b2006c",
+    "role": "CLIENT",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZTQwMTgyNmMtMDA5Ni00Y2FmLTg4MjEtMDcyYzI0Mzc5MTk0IiwiaWF0IjoxNjI4ODc0MDA2fQ.Wfvb20Bvvq1OkJ-E68YhPB9TNJdX_j6B7otihYC8WK8",
+    "user_id": "e401826c-0096-4caf-8821-072c24379194"
+  },
+  {
+    "id": "0464b665-caab-42cb-b1d9-36f7df451a76",
+    "role": "CLIENT",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMTJjYmNkNGEtZjc4NS00NzU0LThiYTUtZWY1OWU5OTRhYzc4IiwiaWF0IjoxNjI4ODgyNjUyfQ.1Cqp5RXsy0W7Ry0e0eGSWFX4CV1uKYCryRbyx8BRm7Y",
+    "user_id": "12cbcd4a-f785-4754-8ba5-ef59e994ac78"
+  }
+]

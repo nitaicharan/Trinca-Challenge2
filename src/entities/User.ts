@@ -10,7 +10,7 @@ export class User extends BaseEntity {
     @Column({ type: 'varchar' })
     email: string;
 
-    @Column('float')
+    @Column('varchar')
     password: string;
 
     @CreateDateColumn()
