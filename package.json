@@ -6,9 +6,20 @@
   "author": "Nitai Charan <nitaicharan@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start:dev": "ts-node-dev src/app.ts",
-    "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
-    "start": "ts-node src/app.ts"
+    "start": "npm run start:production",
+    "start:local": "NODE_ENV=local ts-node-dev src/app.ts",
+    "start:development": "NODE_ENV=development ts-node-dev src/app.ts",
+    "start:test": "NODE_ENV=test ts-node-dev src/app.ts",
+    "start:production": "NODE_ENV=production ts-node src/app.ts",
+    "typeorm": "ts-node node_modules/typeorm/cli.js",
+    "migration:generate:local": "npm run typeorm -- migration:generate --pretty --config environments/typeorm.test.env  --name",
+    "migration:generate:test": "npm run typeorm -- migration:generate --pretty --config environments/typeorm.test.env  --name ",
+    "migration:generate:development": "npm run typeorm -- migration:generate --pretty --config environments/typeorm.development.env  --name ",
+    "migration:generate:production": "npm run typeorm -- migration:generate --pretty --config environments/typeorm.production.env  --name ",
+    "migration:run:test": "npm run typeorm -- migration:run --config environments/typeorm.test.env",
+    "migration:run:development": "npm run typeorm -- migration:run --config environments/typeorm.development.env",
+    "migration:run:production": "npm run typeorm -- migration:run --config environments/typeorm.production.env",
+    "migration:run:local": "npm run typeorm -- migration:run --config environments/typeorm.local.env"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

@@ -1,11 +1,21 @@
 services:
-  redis:
+  database:
+    image: mariadb:latest
+    container_name: database
+    env_file:
+      - ./.env
+    ports:
+      - "3306:3306"
+    networks: 
+      - trincachallenge2
+
+  cacher:
     image: redis:alpine
     container_name: redis
     ports: 
       - "6379:6379"
     networks: 
-      - node
+      - trincachallenge2
     
   trincachallenge2:
     build:
@@ -18,19 +28,20 @@ services:
         target: /opt/trincachallenge2
     container_name: trincachallenge2
     depends_on: 
-      - redis
+      - database
+      - cacher
     ports: 
       - "3333:3333"
     env_file:
       - ./.env
     networks: 
-      - node
+      - trincachallenge2
 
 volumes:
   trincachallenge2:
 
 networks:
-  node:
+  trincachallenge2:
     ipam:
       driver: default
       config:
