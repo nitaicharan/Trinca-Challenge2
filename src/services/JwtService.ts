@@ -1,4 +1,4 @@
-import { JwtPayload, sign, verify } from "jsonwebtoken";
+import { decode, JwtPayload, sign, verify } from "jsonwebtoken";
 
 export const signAccessToken = (payload: { [key: string]: any }) => signToken(payload, process.env.ACCESS_TOKEN_SECRET, process.env.ACCESS_TOKEN_EXPIRES_IN);
 export const signRefreshToken = (payload: { [key: string]: any }) => signToken(payload, process.env.REFRESH_TOKEN_SECRET);
@@ -6,6 +6,7 @@ export const signRefreshToken = (payload: { [key: string]: any }) => signToken(p
 export const verifyAccessToken = (token: string) => verifyToken(token, process.env.ACCESS_TOKEN_SECRET);
 export const verifyRefreshToken = (token: string) => verifyToken(token, process.env.ACCESS_TOKEN_SECRET);
 
+export const decodeToken = (token: string) => decode(token) as JwtPayload;
 
 export const verifyToken = (token: string, secret: string) => verify(token, secret) as JwtPayload;
 

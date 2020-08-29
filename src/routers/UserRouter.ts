@@ -2,11 +2,11 @@ import { Router } from 'express';
 import * as Controller from '../controllers/UserController';
 import { validAccessTokenMiddleware } from '../middleware/JwtMiddleware';
 import createMiddleware from '../middleware/User/CreateMiddleware';
+import findAllMiddleware from '../middleware/User/FindAllMiddleware';
 
 const routes = Router();
 
 routes.post('/users', createMiddleware, Controller.create);
-// TODO check if user has permission
-routes.get('/users', [validAccessTokenMiddleware], Controller.findAll);
+routes.get('/users', [validAccessTokenMiddleware, ...findAllMiddleware], Controller.findAll);
 
 export default routes;

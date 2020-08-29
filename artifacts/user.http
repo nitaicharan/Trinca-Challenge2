@@ -2,7 +2,7 @@
 @domain = localhost
 @port =  3333
 @host = {{protocol}}://{{domain}}:{{port}}
-@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMDIyNzZkYzktNWNiNy00YWVmLWFkNDQtN2JlZGNiNjE1MWQ5IiwiaWF0IjoxNjI4NzM3MDYwLCJleHAiOjE2Mjg4MjM0NjB9.k690VzwC4PQVZQ2CcMU4ukBb6i7Z44SJj70XclJphJ0
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMzRhMjNlMjEtMjQ3OC00NDdmLTllMGYtZmU0YzJkNmRjYzQwIiwiaWF0IjoxNjI4NzY0NTMxLCJleHAiOjE2Mjg4NTA5MzF9.N3pMBlTS5v6-zuEn-VOgA0-ZPWRQcF8-5UDlRDu5-84
 ##############################################################
 GET {{host}}/users
 Authorization: {{authorization}}

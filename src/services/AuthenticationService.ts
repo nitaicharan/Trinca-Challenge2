@@ -42,3 +42,12 @@ export const refreshToken = async (params: { refresh_token: string }) => {
         expires_in,
     };
 }
+
+export const findByUserId = async (user_id: string) => {
+    const repository = getCustomRepository(AuthenticationRepository);
+
+    return await repository.createQueryBuilder('Authorization')
+        .leftJoinAndSelect('Authorization.user', 'User')
+        .where('User.id = :id', { id: user_id })
+        .getOne();
+}
