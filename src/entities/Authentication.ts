@@ -6,12 +6,11 @@ import { User } from "./User";
 @Entity("authentications")
 export class Authentication extends BaseEntity {
 
-    // TODO set user as unique
     @OneToOne(() => User)
-    @JoinColumn({ name: "user_id", })
+    @JoinColumn({ name: "user_id" })
     user: User;
 
-    @Column({ type: 'varchar' })
+    @Column({ type: 'varchar', nullable: false })
     role: RoleType = RoleType.CLIENT;
 
     @Column({ type: 'varchar', nullable: true })
