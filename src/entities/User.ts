@@ -4,13 +4,16 @@ import { BaseEntity } from "./BaseEntity";
 @Entity("users")
 export class User extends BaseEntity {
 
-    @Column('varchar', { unique: true })
+    @Column({ type: 'varchar' })
+    name: string;
+
+    @Column({ type: 'varchar' })
     email: string;
 
-    @CreateDateColumn({ name: 'created_at' })
-    createdAt: Date;
-
-    @Column('varchar')
+    @Column('float')
     password: string;
+
+    @CreateDateColumn()
+    created_at: Date;
 
 }

@@ -1,24 +1,17 @@
 import { Request, Response } from "express";
-import { UserService } from "../services/UserService";
+import * as Service from "../services/UserService";
 
-export class UserController {
+export const create = async (request: Request, response: Response) => {
+    const entity = await Service.save({ ...request.body, ...request.query });
+    return response.json(entity);
+}
 
-    async create(request: Request, response: Response) {
-        const service = new UserService();
-        const entity = await service.save({ ...request.body, ...request.query });
-        return response.json(entity);
-    }
+export const findAll = async (request: Request, response: Response) => {
+    const entity = await Service.findAll();
+    return response.json(entity);
+}
 
-    async findAll(request: Request, response: Response) {
-        const service = new UserService();
-        const entity = await service.findAll();
-        return response.json(entity);
-    }
-
-    async findByEmil(request: Request, response: Response) {
-        const service = new UserService();
-        const entity = await service.findByEmail(request.body.email);
-        return response.json(entity);
-    }
-
+export const findByEmil = async (request: Request, response: Response) => {
+    const entity = await Service.findByEmail(request.body.email);
+    return response.json(entity);
 }

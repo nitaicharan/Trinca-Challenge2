@@ -1,0 +1,15 @@
+@protocol = http
+@domain = localhost
+@port =  3333
+@host = {{protocol}}://{{domain}}:{{port}}
+##############################################################
+GET {{host}}/users
+##############################################################
+POST {{host}}/users
+Content-Type: application/json
+
+{
+    "name": "Nitai Charan",
+    "email": "nitaicharan@gmail.com",
+    "password": "123"
+}

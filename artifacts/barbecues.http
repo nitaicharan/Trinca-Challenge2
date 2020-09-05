@@ -1,0 +1,16 @@
+@protocol = http
+@domain = localhost
+@port =  3333
+@host = {{protocol}}://{{domain}}:{{port}}
+##############################################################
+GET {{host}}/barbecues
+##############################################################
+GET {{host}}/barbecues/{{create_entity.response.body.id}}
+##############################################################
+# @name create_entity
+POST {{host}}
+Content-Type: application/json
+
+{
+    "price": "8"
+}

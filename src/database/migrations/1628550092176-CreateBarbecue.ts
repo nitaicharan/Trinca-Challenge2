@@ -1,9 +1,9 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateUser1627066061949 implements MigrationInterface {
+export class CreateBarbecue1628550092176 implements MigrationInterface {
 
     table = new Table({
-        name: 'users',
+        name: 'barbecues',
         columns: [
             {
                 name: 'id',
@@ -11,23 +11,19 @@ export class CreateUser1627066061949 implements MigrationInterface {
                 isPrimary: true,
             },
             {
-                name: 'name',
-                type: 'varchar',
+                name: 'price',
+                type: 'float',
             },
             {
-                name: 'email',
+                name: 'description',
                 type: 'varchar',
-                isUnique: true
-            },
-            {
-                name: 'password',
-                type: 'varchar',
+                isNullable: true,
             },
             {
                 name: 'created_at',
                 type: 'timestamp',
                 default: 'new()',
-            }
+            },
         ],
     });
 
@@ -38,5 +34,4 @@ export class CreateUser1627066061949 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable(this.table);
     }
-
 }
