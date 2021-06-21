@@ -1,0 +1,20 @@
+@protocol = http
+@domain = localhost
+@port =  3333
+@host = {{protocol}}://{{domain}}:{{port}}
+##############################################################
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "email": "nitaicharan@gmail.com",
+    "password": "123"
+}
+##############################################################
+POST {{host}}/refresh-token
+Content-Type: application/json
+
+{
+    "refresh_token": "{{login.response.body.refresh_token}}"
+}

@@ -5,8 +5,8 @@ import { BarbecueRepository } from '../repositories/BarbecueRepository';
 
 export const save = async (params: CreateRequestBodyDto & CreateRequestQueryDto) => {
     const repository = getCustomRepository(BarbecueRepository);
-    const user = repository.create({ ...params });
-    return await repository.save(user);
+    const entity = repository.create({ ...params });
+    return await repository.save(entity);
 }
 
 export const findAll = async () => {

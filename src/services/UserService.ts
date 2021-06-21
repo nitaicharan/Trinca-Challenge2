@@ -7,9 +7,9 @@ import { UserRepository } from '../repositories/UserRepository';
 export const save = async (params: CreateRequestBodyDto & CreateRequestQueryDto) => {
     const repository = getCustomRepository(UserRepository);
     const password = bcrypt.hashSync(params.password, 10);
-    const user = repository.create({ ...params, password });
-    const { password: pw, ...entity } = await repository.save(user);
-    return entity;
+    const entity = repository.create({ ...params, password });
+    const { password: pw, ...rest } = await repository.save(entity);
+    return rest;
 }
 
 export const findAll = async () => {

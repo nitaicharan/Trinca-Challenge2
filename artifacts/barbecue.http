@@ -8,9 +8,10 @@ GET {{host}}/barbecues
 GET {{host}}/barbecues/{{create_entity.response.body.id}}
 ##############################################################
 # @name create_entity
-POST {{host}}
+POST {{host}}/barbecues
 Content-Type: application/json
 
 {
-    "price": "8"
+    "description": "description",
+    "price": "1000"
 }
