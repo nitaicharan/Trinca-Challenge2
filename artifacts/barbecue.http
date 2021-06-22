@@ -15,3 +15,10 @@ Content-Type: application/json
     "description": "description",
     "price": "100"
 }
+##############################################################
+PATCH  {{host}}/barbecues/{{create_entity.response.body.id}}/sign-user
+Content-Type: application/json
+
+{
+    "user_id": "69593bc4-6874-4823-af4a-6a6dfaa25305"
+}

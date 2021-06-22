@@ -1,13 +1,15 @@
-import { Column, CreateDateColumn, Entity } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany } from "typeorm";
 import { BaseEntity } from "./BaseEntity";
+import { User } from "./User";
 
 @Entity("barbecues")
 export class Barbecue extends BaseEntity {
 
-    // @ManyToOne(() => User)
-    // users: User[];
+    @ManyToMany(type => User)
+    @JoinTable({ name: 'barbecues_users', joinColumn: { name: 'barbecue_id' }, inverseJoinColumn: { name: 'user_id' } })
+    users: User[];
 
-    @Column({ type: 'varchar', nullable: true })
+    @Column({ type: 'varchar' })
     description: string;
 
     @Column({ type: 'float' })

@@ -19,3 +19,8 @@ export const findById = async (request: Request<{ id: string }>, response: Respo
     const entity = await Service.findById(request.params.id);
     return response.json(entity);
 }
+
+export const signUser = async (request: Request<{ barbecue_id: string }, {},  { user_id: string }>, response: Response) => {
+    const entity = await Service.signUser({ ...request.params, ...request.body });
+    return response.json(entity);
+}
