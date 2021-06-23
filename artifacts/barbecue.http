@@ -20,5 +20,5 @@ PATCH  {{host}}/barbecues/{{create_entity.response.body.id}}/sign-user
 Content-Type: application/json
 
 {
-    "user_id": "69593bc4-6874-4823-af4a-6a6dfaa25305"
+    "user_id": "02276dc9-5cb7-4aef-ad44-7bedcb6151d9"
 }
