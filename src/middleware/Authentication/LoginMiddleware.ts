@@ -15,6 +15,7 @@ const validateRequestPartMiddleware = async (request: Request<{}, {}, LoginReque
 
 const validatePasswordMiddleware = async (request: Request<{}, {}, LoginRequestBodyDto, LoginRequestQueryDto>, response: Response, next: NextFunction) => {
     const user = await UserService.findByEmail(request.body.email);
+    
     if (!user) return response.status(400).json({ message: `User ${request.body.email} doesn't exist!` })
 
     const isNotValid = !bcrypt.compareSync(request.body.password, user.password);

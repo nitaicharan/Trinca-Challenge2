@@ -1,6 +1,6 @@
 <!-- PROJECT SHIELDS -->
 
-<p align="center">:bangbang: Documentation available to access at: https://nitaicharan.github.io/Trinca-Challenge2 :bangbang:</p>
+<p align="center">:bangbang: Documentation available to access at: https://nitaicharan.github.io/Trinca-Challenge1 :bangbang:</p>
 
 <!--[![](PREVIEW.png)](https://nitaicharan.github.io/Udemy-CCDNJSMDB1/)-->
 <a href="https://nitaicharan.github.io/Trinca-Challenge2">
@@ -37,15 +37,6 @@ To help you, we've created a prototype that you can use (or not) to design your 
 [![Udemy][udemy-shield]][udemy-url]
 [![Instagram][instagram-shield]][instagram-url]
 [![Twitter][twitter-shield]][twitter-url]
-
-## Development GitHub Pages
-```
-git add -A
-git commit -m <tittle> <message>
-git push <remote> <branch>
-git subtree push --prefix <directory> <remote> gh-pages
-git push <remote> `git subtree split --prefix <directory> <branch>`:gh-pages --force
-```
 
 <!-- ALIAS README -->
 
