@@ -20,11 +20,9 @@ export const login = async (params: LoginRequestBodyDto & LoginRequestQueryDto) 
     const entity = await repository.save({ ...authorization, ...foundAuthorization, refresh_token });
     const { token: access_token, ...rest } = JwtService.signAccessToken({ user: entity.user.id });
 
-    delete entity.role;
-    delete entity.user.password;
     return {
         ...rest,
-        ...{ ...entity },
+        refresh_token: entity.refresh_token,
         access_token,
     };
 }
