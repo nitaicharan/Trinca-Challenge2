@@ -14,6 +14,7 @@ Content-Type: application/json
 ##############################################################
 POST {{host}}/refresh-token
 Content-Type: application/json
+Authorization: Bearer {{login.response.body.access_token}}
 
 {
     "refresh_token": "{{login.response.body.refresh_token}}"

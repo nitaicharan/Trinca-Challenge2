@@ -1,16 +1,13 @@
 import { Router } from 'express';
 import * as Controller from '../controllers/BarbecueController';
 import createMiddleware from '../middleware/Barbecue/CreateMiddleware';
+import { validAccessTokenMiddleware } from '../middleware/JwtMiddleware';
 
 const routes = Router();
 
-// TODO check access_token
-routes.post('/barbecues', createMiddleware, Controller.create);
-// TODO check access_token
-routes.get('/barbecues/:id', Controller.findById);
-// TODO check access_token
-routes.get('/barbecues', Controller.findAll);
-// TODO check access_token
-routes.patch('/barbecues/:barbecue_id/sign-user', Controller.signUser)
+routes.post('/barbecues', [validAccessTokenMiddleware, ...createMiddleware], Controller.create);
+routes.get('/barbecues/:id', [validAccessTokenMiddleware], Controller.findById);
+routes.get('/barbecues', [validAccessTokenMiddleware], Controller.findAll);
+routes.patch('/barbecues/:barbecue_id/sign-user', [validAccessTokenMiddleware], Controller.signUser)
 
 export default routes;
