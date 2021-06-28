@@ -6,7 +6,6 @@ const routes = Router();
 
 // TODO check access_token
 routes.post('/refresh-token', Controller.refreshToken);
-// TODO check check password
 routes.post('/login', loginMiddleware, Controller.login);
 
 export default routes;

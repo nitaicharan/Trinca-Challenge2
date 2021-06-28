@@ -8,7 +8,6 @@ import * as UserService from './UserService';
 export const login = async (params: LoginRequestBodyDto & LoginRequestQueryDto) => {
     const repository = getCustomRepository(AuthenticationRepository);
     const user = await UserService.findByEmail(params.email);
-    // TODO Create a middle to check the sent password
     const authorization = repository.create({ user });
 
     const foundAuthorization = await repository.createQueryBuilder('Authorization')
