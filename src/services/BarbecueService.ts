@@ -21,8 +21,6 @@ export const findById = async (id: string) => {
 }
 
 export const signUser = async (params: { user_id: string, barbecue_id: string }) => {
-    // TODO check if user already exist at a middleware
-    // TODO check if barbecue already exist at a middleware
     await getConnection()
         .createQueryBuilder()
         .relation(Barbecue, 'users')

@@ -2,8 +2,10 @@
 @domain = localhost
 @port =  3333
 @host = {{protocol}}://{{domain}}:{{port}}
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMDIyNzZkYzktNWNiNy00YWVmLWFkNDQtN2JlZGNiNjE1MWQ5IiwiaWF0IjoxNjI4NzM3MDYwLCJleHAiOjE2Mjg4MjM0NjB9.k690VzwC4PQVZQ2CcMU4ukBb6i7Z44SJj70XclJphJ0
 ##############################################################
 GET {{host}}/users
+Authorization: {{authorization}}
 ##############################################################
 POST {{host}}/users
 Content-Type: application/json

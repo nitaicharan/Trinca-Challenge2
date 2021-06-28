@@ -2,14 +2,17 @@
 @domain = localhost
 @port =  3333
 @host = {{protocol}}://{{domain}}:{{port}}
+@authorization = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiMDIyNzZkYzktNWNiNy00YWVmLWFkNDQtN2JlZGNiNjE1MWQ5IiwiaWF0IjoxNjI4NzM3MDYwLCJleHAiOjE2Mjg4MjM0NjB9.k690VzwC4PQVZQ2CcMU4ukBb6i7Z44SJj70XclJphJ0
 ##############################################################
 GET {{host}}/barbecues
+Authorization: {{authorization}}
 ##############################################################
 GET {{host}}/barbecues/{{create_entity.response.body.id}}
 ##############################################################
 # @name create_entity
 POST {{host}}/barbecues
 Content-Type: application/json
+Authorization: {{authorization}}
 
 {
     "description": "description",
@@ -18,6 +21,7 @@ Content-Type: application/json
 ##############################################################
 PATCH  {{host}}/barbecues/{{create_entity.response.body.id}}/sign-user
 Content-Type: application/json
+Authorization: {{authorization}}
 
 {
     "user_id": "02276dc9-5cb7-4aef-ad44-7bedcb6151d9"
