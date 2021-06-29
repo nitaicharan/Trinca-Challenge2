@@ -1,8 +1,10 @@
 import { getCustomRepository } from 'typeorm';
 import { LoginRequestBodyDto } from "../dto/Authentication/LoginRequestBodyDto";
 import { LoginRequestQueryDto } from "../dto/Authentication/LoginRequestQueryDto";
+import { Authentication } from "../entities/Authentication";
 import { AuthenticationRepository } from '../repositories/AuthenticationRepository';
 import * as JwtService from './JwtService';
+import * as RedisService from './RedisService';
 import * as UserService from './UserService';
 
 export const login = async (params: LoginRequestBodyDto & LoginRequestQueryDto) => {
@@ -28,17 +30,14 @@ export const login = async (params: LoginRequestBodyDto & LoginRequestQueryDto) 
 
 export const refreshToken = async (params: { refresh_token: string }) => {
     const repository = getCustomRepository(AuthenticationRepository);
-
-    const authorization = await repository.findOne({ refresh_token: params.refresh_token }, { relations: ['user'] }).then(authorization => {
-        const refreshToken = JwtService.signRefreshToken({ user: authorization.user.id });
-        return repository.save({ ...authorization, refreshToken });
-    });
-
-    const { token: access_token, expires_in } = JwtService.signAccessToken({ user: authorization.user.id });
+    const entity = await findByRefreshToken(params.refresh_token);
+    const refreshToken = JwtService.signRefreshToken({ user: entity.user.id });
+    const result = await repository.save({ ...entity, refreshToken });
+    const { token: access_token, expires_in } = JwtService.signAccessToken({ user: entity.user.id });
 
     return {
         access_token,
-        refresh_token: authorization.refreshToken.token,
+        refresh_token: result.refreshToken.token,
         expires_in,
     };
 }
@@ -50,4 +49,17 @@ export const findByUserId = async (user_id: string) => {
         .leftJoinAndSelect('Authorization.user', 'User')
         .where('User.id = :id', { id: user_id })
         .getOne();
+}
+
+export const findByRefreshToken = async (refresh_token: string) => {
+    let entity: Authentication;
+    entity = await RedisService.getData(refresh_token);
+
+    if (!entity) {
+        const repository = getCustomRepository(AuthenticationRepository);
+        entity = await repository.findOne({ refresh_token: refresh_token }, { relations: ['user'] });
+        entity && await RedisService.setData(refresh_token, entity);
+    }
+
+    return entity;
 }

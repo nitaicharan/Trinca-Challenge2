@@ -9,11 +9,11 @@ type LoginRequest = Request<{}, {}, LoginRequestBodyDto, LoginRequestQueryDto>;
 type RefreshTokenRequest = Request<{}, {}, RefreshTokenRequestBodyDto, RefreshTokenRequestQueryDto>;
 
 export const login = async (request: LoginRequest, response: Response) => {
-    const entity = await Service.login({ ...request.body, ...request.query });
-    return response.json(entity);
+    const result = await Service.login({ ...request.body, ...request.query });
+    return response.json(result);
 }
 
 export const refreshToken = async (request: RefreshTokenRequest, response: Response) => {
-    const entity = await Service.refreshToken({ ...request.body, ...request.query });
-    return response.json(entity);
+    const result = await Service.refreshToken({ ...request.body, ...request.query });
+    return response.json(result);
 }

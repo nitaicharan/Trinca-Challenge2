@@ -8,7 +8,7 @@ const validateRoleAdminMiddleware = async (request: Request, response: Response,
     const { user: user_id } = decodeToken(access_token);
     const authorization = await AuthorizationService.findByUserId(user_id);
 
-    return authorization.role === RoleType.CLIENT ? response.sendStatus(403) : next();
+    return authorization?.role === RoleType.CLIENT ? response.sendStatus(403) : next();
 }
 
 export default [

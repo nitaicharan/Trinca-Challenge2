@@ -13,7 +13,7 @@ export const validAccessTokenMiddleware = async (request: Request, response: Res
         const user = await UserService.findById(id);
         if (!user) throw new JsonWebTokenError("invalid token");
     } catch (error) {
-        response.status(401).send(error);
+        return response.status(401).send(error);
     }
 
     next();
@@ -29,7 +29,7 @@ export const validRefreshTokenMiddleware = async (request: Request, response: Re
         const user = await UserService.findById(id);
         if (!user) throw new JsonWebTokenError("invalid token");
     } catch (error) {
-        response.status(401).send(error);
+        return response.status(401).send(error);
     }
 
     next();
