@@ -12,6 +12,10 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: node:slim
+    volumes:
+      - type: bind
+        source: ./
+        target: /opt/trincachallenge2
     container_name: trincachallenge2
     depends_on: 
       - redis
@@ -21,6 +25,9 @@ services:
       - ./.env
     networks: 
       - node
+
+volumes:
+  trincachallenge2:
 
 networks:
   node:
