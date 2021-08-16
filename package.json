@@ -8,9 +8,9 @@
   "scripts": {
     "start": "npm run start:production",
     "start:local": "NODE_ENV=local ts-node-dev src/app.ts",
-    "start:development": "NODE_ENV=development ts-node-dev src/app.ts",
-    "start:test": "NODE_ENV=test ts-node-dev src/app.ts",
-    "start:production": "NODE_ENV=production ts-node src/app.ts",
+    "start:development": "ts-node-dev src/app.ts",
+    "start:test": "ts-node-dev src/app.ts",
+    "start:production": "ts-node src/app.ts",
     "typeorm": "ts-node node_modules/typeorm/cli.js",
     "migration:generate:local": "npm run typeorm -- migration:generate --pretty --config environments/typeorm.test.env  --name",
     "migration:generate:test": "npm run typeorm -- migration:generate --pretty --config environments/typeorm.test.env  --name ",

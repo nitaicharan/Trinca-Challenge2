@@ -3,7 +3,7 @@ services:
     image: mariadb:latest
     container_name: database
     env_file:
-      - ./.env
+      - .env
     ports:
       - "3306:3306"
     networks: 
@@ -16,11 +16,14 @@ services:
       - "6379:6379"
     networks: 
       - trincachallenge2
-    
+
   trincachallenge2:
     build:
       context: ./
       dockerfile: Dockerfile
+      args:
+        - APP_PORT=${APP_PORT}
+        - NODE_ENV=${NODE_ENV}
     image: node:slim
     volumes:
       - type: bind
@@ -31,7 +34,7 @@ services:
       - database
       - cacher
     ports: 
-      - "3333:3333"
+      - "${APP_PORT}:${APP_PORT}"
     env_file:
       - ./.env
     networks: 
